@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OYZ</title>
+
   <style>
     html, body {
       margin: 0;
@@ -13,59 +14,53 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
-      font-family: "Georgia", "Times New Roman", serif;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: #fff;
     }
 
-    .text {
-      font-size: clamp(6rem, 25vw, 14rem);
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: clamp(5rem, 20vw, 12rem);
       font-weight: 900;
+      letter-spacing: 0.25em;
       color: #8b0000;
-      letter-spacing: 0.2em;
-      position: relative;
-      text-shadow:
-        0 0 8px rgba(139, 0, 0, 0.6),
-        0 0 25px rgba(139, 0, 0, 0.4);
+      text-shadow: 
+        0 0 10px rgba(139,0,0,0.6),
+        0 0 30px rgba(139,0,0,0.4);
+      margin-bottom: 20px;
     }
 
-    /* blood drip effect */
-    .text::after {
-      content: "OYZ";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: transparent;
-      background: linear-gradient(
-        to bottom,
-        rgba(139,0,0,0.9),
-        rgba(90,0,0,0.9),
-        rgba(40,0,0,0.9)
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      filter: blur(1px);
-      transform: translateY(6px);
-      opacity: 0.8;
-      z-index: -1;
+    .tagline {
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      opacity: 0.75;
+      margin-bottom: 40px;
     }
 
-    /* subtle dripping animation */
-    @keyframes drip {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(6px); }
+    .contact {
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      color: #aaa;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
     }
 
-    .text {
-      animation: drip 2.5s ease-in-out infinite alternate;
+    .contact:hover {
+      color: #fff;
+      border-bottom: 1px solid #8b0000;
     }
   </style>
 </head>
 <body>
-  <div class="text">OYZ</div>
-</body>
-</html>      const y = (touch.clientY / window.innerHeight) * 2 - 1;
-      movePlane(x, y);
-    });
-  </script>
+  <div class="container">
+    <div class="logo">OYZ</div>
+    <div class="tagline">Independent · Digital · Silent</div>
+    <a class="contact" href="mailto:contact@yourdomain.com">CONTACT</a>
+  </div>
 </body>
 </html>
