@@ -5,44 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OwnYourZone</title>
   <style>
-    body {
+    html, body {
+      width: 100%;
+      height: 100%;
       margin: 0;
-      height: 100vh;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
       background: #000;
-      overflow: hidden;
-      color: #fff;
       font-family: Arial, sans-serif;
     }
 
+    #container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 800px;
+    }
+
     #text {
-      font-size: 4rem;
-      font-weight: bold;
-      letter-spacing: 0.2rem;
-      position: relative;
+      font-size: 12vw;
+      font-weight: 900;
+      letter-spacing: 0.6vw;
+      color: #fff;
+      text-transform: uppercase;
+      transform-style: preserve-3d;
       transition: transform 0.05s ease-out;
+    }
+
+    /* efect 3D */
+    #text::before,
+    #text::after {
+      content: "OWNYOURZONE";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      transform: translateZ(-20px);
+      opacity: 0.7;
+    }
+
+    #text::before {
+      color: #7c5cff;
+      transform: translateZ(-30px);
+    }
+
+    #text::after {
+      color: #22c55e;
+      transform: translateZ(-50px);
+      opacity: 0.5;
     }
   </style>
 </head>
 <body>
-  <div id="text">OWNYOURZONE</div>
+  <div id="container">
+    <div id="text">OWNYOURZONE</div>
+  </div>
 
   <script>
+    const container = document.getElementById("container");
     const text = document.getElementById("text");
 
-    window.addEventListener("deviceorientation", (event) => {
-      // event.gamma = left/right tilt
-      // event.beta = front/back tilt
-      const x = event.gamma; 
-      const y = event.beta;
+    function moveText(x, y) {
+      // x, y sunt coordonate între -1 și 1
+      const rotateY = x * 15; // cât se rotește pe orizontală
+      const rotateX = y * 15; // cât se rotește pe verticală
 
-      // Ajustează viteza mișcării (mai mare = mai sensibil)
-      const moveX = x * 1.2;
-      const moveY = y * 1.2;
+      text.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+    }
 
-      text.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    // mouse
+    window.addEventListener("mousemove", (e) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      moveText(x, y);
+    });
+
+    // touch (mobil)
+    window.addEventListener("touchmove", (e) => {
+      const touch = e.touches[0];
+      const x = (touch.clientX / window.innerWidth) * 2 - 1;
+      const y = (touch.clientY / window.innerHeight) * 2 - 1;
+      moveText(x, y);
     });
   </script>
 </body>
