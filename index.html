@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OwnYourZone</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWNYOURZONE</title>
   <style>
     html, body {
       width: 100%;
@@ -14,7 +14,7 @@
       justify-content: center;
       align-items: center;
       background: #000;
-      font-family: Arial, sans-serif;
+      font-family: "Times New Roman", Times, serif;
     }
 
     #container {
@@ -23,20 +23,26 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      perspective: 800px;
+      perspective: 900px;
+      background: radial-gradient(circle at center, #1a0a1a 0%, #000 70%);
     }
 
     #text {
       font-size: 12vw;
       font-weight: 900;
-      letter-spacing: 0.6vw;
-      color: #fff;
+      letter-spacing: 0.7vw;
       text-transform: uppercase;
+      color: #f2f2f2;
       transform-style: preserve-3d;
+      text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.2),
+        0 0 40px rgba(255, 0, 80, 0.25),
+        0 0 80px rgba(120, 0, 255, 0.2);
       transition: transform 0.05s ease-out;
+      position: relative;
     }
 
-    /* efect 3D */
+    /* efect 3D gotic (straturi) */
     #text::before,
     #text::after {
       content: "OWNYOURZONE";
@@ -46,19 +52,26 @@
       width: 100%;
       height: 100%;
       display: block;
-      transform: translateZ(-20px);
+      transform: translateZ(-25px);
       opacity: 0.7;
     }
 
     #text::before {
       color: #7c5cff;
-      transform: translateZ(-30px);
+      transform: translateZ(-40px);
+      filter: blur(1px);
     }
 
     #text::after {
-      color: #22c55e;
-      transform: translateZ(-50px);
+      color: #ff3d6b;
+      transform: translateZ(-70px);
       opacity: 0.5;
+      filter: blur(2px);
+    }
+
+    /* adaugă o margine gotică */
+    #text {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
@@ -68,25 +81,20 @@
   </div>
 
   <script>
-    const container = document.getElementById("container");
     const text = document.getElementById("text");
 
     function moveText(x, y) {
-      // x, y sunt coordonate între -1 și 1
-      const rotateY = x * 15; // cât se rotește pe orizontală
-      const rotateX = y * 15; // cât se rotește pe verticală
-
+      const rotateY = x * 18;
+      const rotateX = y * 18;
       text.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
     }
 
-    // mouse
     window.addEventListener("mousemove", (e) => {
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = (e.clientY / window.innerHeight) * 2 - 1;
       moveText(x, y);
     });
 
-    // touch (mobil)
     window.addEventListener("touchmove", (e) => {
       const touch = e.touches[0];
       const x = (touch.clientX / window.innerWidth) * 2 - 1;
