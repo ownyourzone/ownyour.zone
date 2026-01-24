@@ -19,7 +19,7 @@ html, body {
   font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
-/* background grain */
+/* grain */
 body::before {
   content: "";
   position: fixed;
@@ -37,6 +37,26 @@ body::before {
   justify-content: center;
   align-items: center;
   perspective: 1200px;
+}
+
+.snow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background-image: 
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 3px 3px, 4px 4px, 2px 2px;
+  background-position: 0 0, 100px 50px, 200px 150px;
+  animation: snow 10s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes snow {
+  0% { transform: translateY(-10%); }
+  100% { transform: translateY(110%); }
 }
 
 .glow {
@@ -64,7 +84,12 @@ body::before {
   text-shadow:
     0 0 25px var(--red-glow),
     0 0 80px rgba(140,0,0,0.35);
-  transform: translateZ(60px);
+  animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
 }
 
 .logo::after {
@@ -86,9 +111,17 @@ body::before {
   transform: translateZ(30px);
 }
 
-/* mobile tuning */
+.footer {
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.4);
+  z-index: 2;
+}
+
 @media (max-width: 480px) {
-  .logo {
-    letter-spacing: 0.18em;
-  }
+  .logo { letter-spacing: 0.18em; }
 }
