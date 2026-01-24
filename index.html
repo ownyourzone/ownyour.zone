@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OwnYour.Zone</title>
+  <title>NoirHeart</title>
   <style>
     :root {
-      --bg: #0b1020;
-      --card: rgba(255, 255, 255, 0.08);
-      --card2: rgba(255, 255, 255, 0.12);
-      --text: #e9edf8;
-      --muted: rgba(233, 237, 248, 0.7);
-      --accent: #7c5cff;
-      --accent2: #22c55e;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      --bg: #07070b;
+      --card: rgba(255, 255, 255, 0.06);
+      --text: #e8e8f0;
+      --muted: rgba(232, 232, 240, 0.7);
+      --accent: #a43dff;
+      --accent2: #ff3d6b;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle at top left, #2b2f6f, var(--bg));
+      background: radial-gradient(circle at top, #1a0a1a, var(--bg));
       color: var(--text);
       min-height: 100vh;
     }
@@ -40,9 +39,9 @@
     }
 
     .brand {
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      font-size: 1.4rem;
     }
 
     .brand span {
@@ -53,7 +52,7 @@
       color: var(--muted);
       text-decoration: none;
       margin-left: 20px;
-      font-weight: 500;
+      font-weight: 600;
       transition: color 0.2s ease;
     }
 
@@ -90,7 +89,7 @@
     .btn {
       padding: 12px 18px;
       border-radius: 12px;
-      font-weight: 600;
+      font-weight: 700;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: transparent;
       color: var(--text);
@@ -104,12 +103,8 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #22d3ee);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       border: none;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #7c5cff, #22c55e);
     }
 
     .card {
@@ -119,31 +114,6 @@
       box-shadow: var(--shadow);
       padding: 24px;
       backdrop-filter: blur(8px);
-    }
-
-    .stats {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .stat {
-      flex: 1;
-      padding: 16px;
-      border-radius: 16px;
-      background: var(--card2);
-      text-align: center;
-    }
-
-    .stat h3 {
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-    }
-
-    .stat p {
-      color: var(--muted);
-      font-size: 0.95rem;
     }
 
     .features {
@@ -192,9 +162,9 @@
 <body>
   <div class="container">
     <header>
-      <div class="brand">OwnYour.<span>Zone</span></div>
+      <div class="brand">Noir<span>Heart</span></div>
       <nav>
-        <a href="#features">Features</a>
+        <a href="#features">Vibes</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -202,53 +172,37 @@
 
     <section class="hero">
       <div>
-        <h1>Build a clean, modern site — in minutes.</h1>
-        <p>OwnYour.Zone is your starting point for a fast, minimal landing page. Simple, stylish, and ready to go. No backend, no hassle — just pure HTML + CSS.</p>
+        <h1>Dark vibes. Quiet chaos. Pure emotion.</h1>
+        <p>A minimal dark landing page inspired by emo aesthetics. Perfect for music, poetry, or personal branding.</p>
         <div class="buttons">
           <button class="btn btn-primary" onclick="scrollToSection('features')">Explore</button>
           <button class="btn" onclick="scrollToSection('contact')">Contact</button>
         </div>
-
-        <div class="stats">
-          <div class="stat">
-            <h3>Fast</h3>
-            <p>Lightning quick load time with GitHub Pages hosting.</p>
-          </div>
-          <div class="stat">
-            <h3>Minimal</h3>
-            <p>Clean design, no clutter, no unnecessary scripts.</p>
-          </div>
-          <div class="stat">
-            <h3>Free</h3>
-            <p>Fully free hosting with your own domain.</p>
-          </div>
-        </div>
       </div>
 
-      <div class="card">
-        <h2 id="about">About</h2>
-        <p>Use this page as a base for your personal brand, project, or portfolio. Customize the text, colors, and layout to match your style.</p>
-        <p style="margin-top: 12px; color: var(--muted);">Tip: Replace the content with your own details and add sections as needed.</p>
+      <div class="card" id="about">
+        <h2>About</h2>
+        <p>This page is a base for a dark personal site. Add your own art, music, or poems. Customize the colors and layout as you like.</p>
       </div>
     </section>
 
     <section id="features" class="features">
       <div class="feature">
-        <h4>Responsive Design</h4>
-        <p>Looks great on desktop and mobile without any extra effort.</p>
+        <h4>Dark Design</h4>
+        <p>Black gradients and neon accents for a strong emo look.</p>
       </div>
       <div class="feature">
-        <h4>Modern Style</h4>
-        <p>Dark gradient background with glassmorphism cards for a premium feel.</p>
+        <h4>Minimal Layout</h4>
+        <p>Simple and clean sections for fast loading and easy editing.</p>
       </div>
       <div class="feature">
-        <h4>Easy to Customize</h4>
-        <p>Change colors, fonts, and content in a few minutes.</p>
+        <h4>Free Hosting</h4>
+        <p>Works perfectly with GitHub Pages and your custom domain.</p>
       </div>
     </section>
 
     <footer id="contact">
-      © 2026 OwnYour.Zone • Built with GitHub Pages
+      © 2026 NoirHeart
     </footer>
   </div>
 
