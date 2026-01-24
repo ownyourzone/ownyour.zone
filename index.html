@@ -6,61 +6,126 @@
   <title>OYZ</title>
 
   <style>
-    html, body {
+    :root {
+      --bg: #050505;
+      --red: #7a0a0a;
+      --red-glow: rgba(122, 10, 10, 0.6);
+      --white-muted: rgba(255,255,255,0.75);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    html, body {
       width: 100%;
       height: 100%;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      overflow: hidden;
       color: #fff;
     }
 
-    .container {
+    /* subtle noise overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .center {
       text-align: center;
-      padding: 20px;
+      transform-style: preserve-3d;
     }
 
     .logo {
-      font-size: clamp(5rem, 20vw, 12rem);
+      font-size: clamp(6rem, 22vw, 14rem);
       font-weight: 900;
-      letter-spacing: 0.25em;
-      color: #8b0000;
-      text-shadow: 
-        0 0 10px rgba(139,0,0,0.6),
-        0 0 30px rgba(139,0,0,0.4);
-      margin-bottom: 20px;
+      letter-spacing: 0.3em;
+      color: var(--red);
+      text-shadow:
+        0 0 20px var(--red-glow),
+        0 0 60px rgba(122,10,10,0.35);
+      position: relative;
+      animation: breathe 6s ease-in-out infinite;
+    }
+
+    .logo::after {
+      content: "OYZ";
+      position: absolute;
+      inset: 0;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+      transform: translateZ(-1px);
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow:
+          0 0 20px var(--red-glow),
+          0 0 60px rgba(122,10,10,0.35);
+      }
+      50% {
+        transform: scale(1.03);
+        text-shadow:
+          0 0 30px var(--red-glow),
+          0 0 90px rgba(122,10,10,0.45);
+      }
     }
 
     .tagline {
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      opacity: 0.75;
-      margin-bottom: 40px;
+      margin-top: 24px;
+      font-size: 0.85rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--white-muted);
+      opacity: 0.85;
     }
 
-    .contact {
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      color: #aaa;
-      border-bottom: 1px solid transparent;
-      transition: all 0.3s ease;
+    .footer {
+      position: absolute;
+      bottom: 24px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.4);
     }
 
-    .contact:hover {
-      color: #fff;
-      border-bottom: 1px solid #8b0000;
+    /* responsive tightening */
+    @media (max-width: 480px) {
+      .logo {
+        letter-spacing: 0.18em;
+      }
+      .tagline {
+        letter-spacing: 0.25em;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">OYZ</div>
-    <div class="tagline">Independent · Digital · Silent</div>
-    <a class="contact" href="mailto:ownyourzone@proton.me">CONTACT</a>
+  <div class="wrapper">
+    <div class="center">
+      <div class="logo">OYZ</div>
+      <div class="tagline">Independent · Digital · Silent</div>
+    </div>
+    <div class="footer">EST. ONLINE</div>
   </div>
 </body>
 </html>
