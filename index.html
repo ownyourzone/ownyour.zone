@@ -28,21 +28,22 @@
     }
 
     #text {
-      font-size: 12vw;
+      font-size: clamp(5rem, 18vw, 11rem); /* Aici se scalează automat */
       font-weight: 900;
-      letter-spacing: 0.7vw;
+      letter-spacing: 0.5vw;
       text-transform: uppercase;
       color: #f2f2f2;
       transform-style: preserve-3d;
       text-shadow:
-        0 0 15px rgba(255, 255, 255, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.2),
         0 0 40px rgba(255, 0, 80, 0.25),
         0 0 80px rgba(120, 0, 255, 0.2);
       transition: transform 0.05s ease-out;
       position: relative;
+      text-align: center;
+      line-height: 1;
     }
 
-    /* efect 3D gotic (straturi) */
     #text::before,
     #text::after {
       content: "OWNYOURZONE";
@@ -69,7 +70,6 @@
       filter: blur(2px);
     }
 
-    /* adaugă o margine gotică */
     #text {
       -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
     }
@@ -84,8 +84,8 @@
     const text = document.getElementById("text");
 
     function moveText(x, y) {
-      const rotateY = x * 18;
-      const rotateX = y * 18;
+      const rotateY = x * 15;
+      const rotateX = y * 15;
       text.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
     }
 
