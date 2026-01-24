@@ -1,105 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ownyourzone</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sky Flight</title>
   <style>
     html, body {
       width: 100%;
       height: 100%;
       margin: 0;
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: Arial, sans-serif;
       background: #000;
-      font-family: "Times New Roman", Times, serif;
     }
 
-    #container {
+    #scene {
       width: 100vw;
       height: 100vh;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      perspective: 900px;
-      background: radial-gradient(circle at center, #1a0a1a 0%, #000 70%);
+      background: radial-gradient(circle at center, #1a1a2e 0%, #05050a 70%);
     }
 
-    #text {
-      font-size: clamp(5rem, 18vw, 11rem); /* Aici se scalează automat */
-      font-weight: 900;
-      letter-spacing: 0.5vw;
-      text-transform: uppercase;
-      color: #f2f2f2;
-      transform-style: preserve-3d;
-      text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.2),
-        0 0 40px rgba(255, 0, 80, 0.25),
-        0 0 80px rgba(120, 0, 255, 0.2);
-      transition: transform 0.05s ease-out;
-      position: relative;
-      text-align: center;
-      line-height: 1;
-    }
-
-    #text::before,
-    #text::after {
-      content: "OWNYOURZONE";
+    /* stele */
+    .stars {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      display: block;
-      transform: translateZ(-25px);
-      opacity: 0.7;
+      background: transparent;
+      background-image: 
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+      background-size: 3px 3px, 4px 4px, 2px 2px;
+      background-position: 0 0, 50px 80px, 120px 40px;
+      opacity: 0.9;
+      animation: twinkle 6s infinite;
     }
 
-    #text::before {
-      color: #7c5cff;
-      transform: translateZ(-40px);
-      filter: blur(1px);
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
     }
 
-    #text::after {
-      color: #ff3d6b;
-      transform: translateZ(-70px);
-      opacity: 0.5;
-      filter: blur(2px);
+    /* avionul */
+    #plane {
+      width: clamp(120px, 35vw, 240px);
+      height: auto;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.05s ease-out;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
     }
 
-    #text {
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    /* glow subtil */
+    #plane::after {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      z-index: -1;
     }
   </style>
 </head>
 <body>
-  <div id="container">
-    <div id="text">OWNYOURZONE</div>
+  <div id="scene">
+    <div class="stars"></div>
+
+    <!-- SVG avion negru -->
+    <svg id="plane" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 30 L62 32 L40 22 L44 2 L34 14 L20 10 L24 26 L2 30 Z" fill="#000"/>
+      <path d="M2 34 L24 38 L20 54 L34 50 L44 62 L40 42 L62 34 L2 34 Z" fill="#000"/>
+    </svg>
   </div>
 
   <script>
-    const text = document.getElementById("text");
+    const plane = document.getElementById("plane");
 
-    function moveText(x, y) {
-      const rotateY = x * 15;
-      const rotateX = y * 15;
-      text.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+    function movePlane(x, y) {
+      const moveX = x * 20; // cât se mișcă pe orizontală
+      const moveY = y * 20; // cât se mișcă pe verticală
+      plane.style.transform = `translate(${moveX}px, ${moveY}px)`;
     }
 
     window.addEventListener("mousemove", (e) => {
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = (e.clientY / window.innerHeight) * 2 - 1;
-      moveText(x, y);
+      movePlane(x, y);
     });
 
     window.addEventListener("touchmove", (e) => {
       const touch = e.touches[0];
       const x = (touch.clientX / window.innerWidth) * 2 - 1;
       const y = (touch.clientY / window.innerHeight) * 2 - 1;
-      moveText(x, y);
+      movePlane(x, y);
     });
   </script>
 </body>
