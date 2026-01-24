@@ -1,10 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Site-ul meu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OwnYour.Zone</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: rgba(255, 255, 255, 0.08);
+      --card2: rgba(255, 255, 255, 0.12);
+      --text: #e9edf8;
+      --muted: rgba(233, 237, 248, 0.7);
+      --accent: #7c5cff;
+      --accent2: #22c55e;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top left, #2b2f6f, var(--bg));
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 1.2rem;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #22d3ee);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #7c5cff, #22c55e);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--card2);
+      text-align: center;
+    }
+
+    .stat h3 {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .stat p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .feature h4 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Salut!</h1>
-  <p>Site-ul meu e pe GitHub Pages.</p>
+  <div class="container">
+    <header>
+      <div class="brand">OwnYour.<span>Zone</span></div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Build a clean, modern site — in minutes.</h1>
+        <p>OwnYour.Zone is your starting point for a fast, minimal landing page. Simple, stylish, and ready to go. No backend, no hassle — just pure HTML + CSS.</p>
+        <div class="buttons">
+          <button class="btn btn-primary" onclick="scrollToSection('features')">Explore</button>
+          <button class="btn" onclick="scrollToSection('contact')">Contact</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>Fast</h3>
+            <p>Lightning quick load time with GitHub Pages hosting.</p>
+          </div>
+          <div class="stat">
+            <h3>Minimal</h3>
+            <p>Clean design, no clutter, no unnecessary scripts.</p>
+          </div>
+          <div class="stat">
+            <h3>Free</h3>
+            <p>Fully free hosting with your own domain.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 id="about">About</h2>
+        <p>Use this page as a base for your personal brand, project, or portfolio. Customize the text, colors, and layout to match your style.</p>
+        <p style="margin-top: 12px; color: var(--muted);">Tip: Replace the content with your own details and add sections as needed.</p>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="feature">
+        <h4>Responsive Design</h4>
+        <p>Looks great on desktop and mobile without any extra effort.</p>
+      </div>
+      <div class="feature">
+        <h4>Modern Style</h4>
+        <p>Dark gradient background with glassmorphism cards for a premium feel.</p>
+      </div>
+      <div class="feature">
+        <h4>Easy to Customize</h4>
+        <p>Change colors, fonts, and content in a few minutes.</p>
+      </div>
+    </section>
+
+    <footer id="contact">
+      © 2026 OwnYour.Zone • Built with GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
