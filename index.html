@@ -51,5 +51,22 @@
     </div>
     <div class="footer">© 2026 OWNYOURZONE</div>
   </div>
+  <audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bg-music");
+
+  function startMusic() {
+    music.volume = 0.4;
+    music.play();
+    window.removeEventListener("click", startMusic);
+    window.removeEventListener("touchstart", startMusic);
+  }
+
+  window.addEventListener("click", startMusic);
+  window.addEventListener("touchstart", startMusic);
+</script>
 </body>
 </html>
