@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OYZ</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,60 +14,37 @@
 
     <div class="logo-wrapper">
       <div class="logo">OYZ</div>
-      <div class="tagline">Own Your Zone</div>
-    </div>
-  </div>
-
-  <script src="motion.js"></script>
-</body>
-</html>      opacity: 0.85;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 24px;
-      width: 100%;
-      text-align: center;
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      color: rgba(255,255,255,0.4);
-    }
-
-    /* responsive tightening */
-    @media (max-width: 480px) {
-      .logo {
-        letter-spacing: 0.18em;
-      }
-      .tagline {
-        letter-spacing: 0.25em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper">
-    <div class="center">
-      <div class="logo">OYZ</div>
       <div class="tagline">Independent · Cold · Silent</div>
     </div>
-    <div class="footer">© 2026 OWNYOURZONE</div>
+
+    <div class="footer">© est. 2026</div>
   </div>
+
+  <!-- Audio -->
   <audio id="bg-music" loop>
-  <source src="end.mp3" type="audio/mpeg">
-</audio>
+    <source src="end.mp3" type="audio/mpeg">
+  </audio>
 
-<script>
-  const music = document.getElementById("bg-music");
+  <!-- Motion -->
+  <script src="motion.js"></script>
 
-  function startMusic() {
-    music.volume = 0.4;
-    music.play();
-    window.removeEventListener("click", startMusic);
-    window.removeEventListener("touchstart", startMusic);
-  }
+  <!-- Music control -->
+  <script>
+    const music = document.getElementById("bg-music");
+    let started = false;
 
-  window.addEventListener("click", startMusic);
-  window.addEventListener("touchstart", startMusic);
-</script>
+    function startMusic() {
+      if (started) return;
+      music.volume = 0.4;
+      music.play();
+      started = true;
+      window.removeEventListener("click", startMusic);
+      window.removeEventListener("touchstart", startMusic);
+    }
+
+    window.addEventListener("click", startMusic);
+    window.addEventListener("touchstart", startMusic);
+  </script>
+
 </body>
 </html>
