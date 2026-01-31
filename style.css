@@ -1,4 +1,4 @@
-:root {
+<:root {
   --bg: #030303;
   --red: #7a0a0a;
   --red-glow: rgba(140, 0, 0, 0.6);
@@ -125,3 +125,4 @@ body::before {
 @media (max-width: 480px) {
   .logo { letter-spacing: 0.18em; }
 }
+>
