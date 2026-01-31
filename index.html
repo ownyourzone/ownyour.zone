@@ -1,50 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OYZ</title>
-
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <div class="scene">
-    <div class="glow"></div>
-
-    <div class="logo-wrapper">
-      <div class="logo">OYZ</div>
-      <div class="tagline">Own Your Zone</div>
-    </div>
-
-    <div class="footer">© est. 2026</div>
-  </div>
-
-  <!-- Audio -->
-  <audio id="bg-music" loop>
-    <source src="end.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Motion -->
-  <script src="motion.js"></script>
-
-  <!-- Music control -->
-  <script>
-    const music = document.getElementById("bg-music");
-    let started = false;
-
-    function startMusic() {
-      if (started) return;
-      music.volume = 0.4;
-      music.play();
-      started = true;
-      window.removeEventListener("click", startMusic);
-      window.removeEventListener("touchstart", startMusic);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work in Progress</title>
+  <style>
+    /* Reset și bază */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
     }
 
-    window.addEventListener("click", startMusic);
-    window.addEventListener("touchstart", startMusic);
-  </script>
+    body {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1a1a1a, #333); /* fundal profesionist */
+      overflow: hidden;
+      position: relative;
+    }
 
+    /* Benzile diagonale */
+    .stripe {
+      position: absolute;
+      width: 300%;
+      height: 60px;
+      background: rgba(255, 0, 0, 0.15);
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: rotate(-25deg);
+      animation: float 5s linear infinite;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    /* Mișcare aleatorie */
+    @keyframes float {
+      0% { transform: rotate(-25deg) translateX(-100%); }
+      50% { transform: rotate(-25deg) translateX(50%); }
+      100% { transform: rotate(-25deg) translateX(-100%); }
+    }
+
+    /* Creăm mai multe benzi */
+    .stripe:nth-child(1) { top: 20%; animation-duration: 6s; }
+    .stripe:nth-child(2) { top: 40%; animation-duration: 4s; }
+    .stripe:nth-child(3) { top: 60%; animation-duration: 5.5s; }
+    .stripe:nth-child(4) { top: 80%; animation-duration: 7s; }
+  </style>
+</head>
+<body>
+  <div class="stripe">Work in Progress</div>
+  <div class="stripe">Work in Progress</div>
+  <div class="stripe">Work in Progress</div>
+  <div class="stripe">Work in Progress</div>
 </body>
 </html>
