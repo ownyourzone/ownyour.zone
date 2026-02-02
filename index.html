@@ -3,30 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Fullscreen</title>
+  <title>Flashing Text</title>
   <style>
     html, body {
       height: 100%;
       margin: 0;
+      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #000; /* fundal negru */
-      color: #fff; /* text alb */
       font-family: Arial, sans-serif;
     }
+
     .container {
       display: flex;
       flex-direction: column;
-      justify-content: space-around; /* distribuie cuvintele pe toată înălțimea */
+      justify-content: space-around;
       height: 100%;
       width: 100%;
       text-align: center;
     }
+
     .container span {
-      font-size: 10vw; /* mărime mare, se adaptează la lățimea ecranului */
-      line-height: 1;
+      font-size: 10vw;
+      color: #fff;
+      opacity: 0;
+      animation: flash 6s infinite;
     }
+
+    /* Animația flash */
+    @keyframes flash {
+      0%, 100% { opacity: 0; }
+      10%, 90% { opacity: 1; }
+    }
+
+    /* Delay pentru fiecare cuvânt ca să apară pe rând */
+    .container span:nth-child(1) { animation-delay: 0s; }
+    .container span:nth-child(2) { animation-delay: 1s; }
+    .container span:nth-child(3) { animation-delay: 2s; }
+    .container span:nth-child(4) { animation-delay: 3s; }
+    .container span:nth-child(5) { animation-delay: 4s; }
+    .container span:nth-child(6) { animation-delay: 5s; }
   </style>
 </head>
 <body>
