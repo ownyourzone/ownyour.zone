@@ -6,39 +6,37 @@
     <title>ownyourzone</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #111; /* dark-ish for vibe */
             margin: 0;
-            font-family: Rajdhani, sans-serif;
+            background-color: #000; /* full black background */
+            font-family: Arial, sans-serif;
         }
 
-        .big-button {
-            padding: 30px 80px;
-            font-size: 28px;
+        .top-button {
+            display: block;
+            margin: 20px auto 0 auto; /* top margin 20px, centered horizontally */
+            padding: 15px 50px;
+            font-size: 22px;
             color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 12px;
+            background-color: #000; /* black button */
+            border: 2px solid #fff; /* white border */
+            border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.1s ease, background-color 0.3s;
+            text-align: center;
+            transition: transform 0.1s ease, background-color 0.3s, color 0.3s;
         }
 
-        /* Hover effect */
-        .big-button:hover {
-            background-color: #0056b3;
+        .top-button:hover {
+            background-color: #fff;
+            color: #000;
         }
 
-        /* Press animation */
-        .big-button:active {
-            transform: scale(0.95); /* makes it shrink a little when pressed */
+        .top-button:active {
+            transform: scale(0.95); /* press animation */
         }
     </style>
 </head>
 <body>
-    <button class="big-button" onclick="location.href='https://ownyour.zone/first'">
+    <button class="top-button" onclick="location.href='https://ownyour.zone/first'">
         First
     </button>
 </body>
