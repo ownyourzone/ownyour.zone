@@ -3,55 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OWNYOURZONE</title>
+    <title>ownyourzone</title>
     <style>
         body {
-            background-color: #000; /* dark background */
-            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111; /* dark-ish for vibe */
             margin: 0;
             font-family: Arial, sans-serif;
         }
 
-        .top-button {
-            display: inline-block;
-            margin: 20px;
-            padding: 15px 40px;
-            font-size: 20px;
+        .big-button {
+            padding: 30px 80px;
+            font-size: 28px;
             color: #fff;
-            background-color: transparent;
-            border: 2px solid #fff;
-            border-radius: 8px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 12px;
             cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s, color 0.3s;
+            transition: transform 0.1s ease, background-color 0.3s;
         }
 
-        .top-button:hover {
-            background-color: #fff;
-            color: #000;
+        /* Hover effect */
+        .big-button:hover {
+            background-color: #0056b3;
         }
 
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 80vh; /* rest of page */
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 24px;
-            color: #ccc;
+        /* Press animation */
+        .big-button:active {
+            transform: scale(0.95); /* makes it shrink a little when pressed */
         }
     </style>
 </head>
 <body>
-    <!-- Button at the top -->
-    <a class="top-button" href="index.html">Back to Home</a>
+    <button class="big-button" onclick="location.href='https://ownyour.zone/first'">
+        First
+    </button>
+</body>
 </html>
