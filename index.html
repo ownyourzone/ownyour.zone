@@ -1,60 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YOU AIN'T READY FOR WHAT'S COMING</title>
-  <link rel="icon" type="image/jpg" href="https://raw.githubusercontent.com/ownyourzone/ownyour.zone/main/Project%20Capture%20(1).jpg">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #000;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      height: 100%;
-      width: 100%;
-      text-align: center;
-      color: #fff;
-      text-shadow: 2px 2px 10px #000;
-    }
+        .big-button {
+            padding: 20px 60px;
+            font-size: 24px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-    .container span {
-      font-size: 10vw;
-      opacity: 0;
-      animation: flash 6s infinite;
-    }
-
-    @keyframes flash {
-      0%, 100% { opacity: 0; }
-      10%, 90% { opacity: 1; }
-    }
-
-    .container span:nth-child(1) { animation-delay: 0s; }
-    .container span:nth-child(2) { animation-delay: 1s; }
-    .container span:nth-child(3) { animation-delay: 2s; }
-    .container span:nth-child(4) { animation-delay: 3s; }
-    .container span:nth-child(5) { animation-delay: 4s; }
-    .container span:nth-child(6) { animation-delay: 5s; }
-  </style>
+        .big-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <span>YOU</span>
-    <span>AIN'T</span>
-    <span>READY</span>
-    <span>FOR</span>
-    <span>WHAT'S</span>
-    <span>COMING</span>
-  </div>
+    <button class="big-button" onclick="location.href='https://ownyour.zone/first'">
+        First
+    </button>
 </body>
 </html>
