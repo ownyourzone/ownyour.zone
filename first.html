@@ -1,1 +1,60 @@
-print("helloworld")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Dark Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0a0a0a; /* very dark background */
+            color: #f5f5f5; /* light text */
+            font-family: 'Playfair Display', serif; /* elegant serif font */
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .central-text {
+            max-width: 800px;
+            font-size: 28px; /* good readable size */
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Optional: subtle shadow for elegance */
+        .central-text::selection {
+            background: #444;
+            color: #fff;
+        }
+
+        /* Optional: fade-in animation */
+        .central-text {
+            animation: fadeIn 1.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="central-text">
+        Welcome to this elegant dark page. <br>
+        Everything here is designed to be minimal, serious, and stylish.  
+    </div>
+</body>
+</html>
