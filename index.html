@@ -1,111 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ownyourzone</title>
 
 <style>
 body {
     margin: 0;
-    overflow: hidden;
     background: black;
-    font-family: Arial, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Text mic fundal */
-.phrase {
+/* Text OYZ */
+#oyz {
     position: absolute;
     color: white;
-    font-size: 2.5vw; /* responsive */
-    opacity: 0.55;
-    white-space: nowrap;
-    pointer-events: none;
-    animation: float linear infinite;
-}
-
-/* Animatie miscare */
-@keyframes float {
-    from { transform: translate(0,0); }
-    to { transform: translate(var(--moveX), var(--moveY)); }
-}
-
-/* Text mare centru */
-.center-text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18vw; /* responsive */
+    font-size: 20vw;
     font-weight: bold;
-    color: black;
-    -webkit-text-stroke: 4px white;
-    text-align: center;
+    user-select: none;
     pointer-events: none;
+    transition: transform 0.1s linear;
 }
 </style>
 </head>
 
 <body>
 
-<div class="center-text">OYZ</div>
+<div id="oyz">OYZ</div>
 
 <script>
-const phrases = [
-"What is truth beyond perception?",
-"Can reality exist without observation?",
-"Is knowledge ever truly complete?",
-"Does time exist without change?",
-"Are morals created or discovered?",
-"What defines reality versus illusion?",
-"Is freedom possible without limits?",
-"Can meaning exist without interpretation?",
-"Does language shape thought or reflect it?",
-"Is consciousness a product or a creator of reality?",
-"Can something be real if it cannot be proven?",
-"Are humans guided by logic or belief?",
-"What makes an idea valuable?",
-"Does progress always mean improvement?",
-"Is individuality real or constructed by society?",
-"Can order exist without chaos?",
-"Does understanding something change its nature?",
-"Are all perspectives equally valid?",
-"Can reality be different for each observer?",
-"Is ignorance a limitation or a form of protection?"
-];
+const text = document.getElementById("oyz");
 
-function random(min, max) {
-    return Math.random() * (max - min) + min;
+function moveText(x, y) {
+    text.style.left = x + "px";
+    text.style.top = y + "px";
 }
 
-function generatePhrases() {
+/* Mouse */
+document.addEventListener("mousemove", e => {
+    moveText(e.clientX, e.clientY);
+});
 
-    document.querySelectorAll(".phrase").forEach(e => e.remove());
-
-    const density = Math.floor((window.innerWidth * window.innerHeight) / 9000);
-
-    for(let i = 0; i < density; i++) {
-
-        const phrase = document.createElement("div");
-        phrase.className = "phrase";
-        phrase.innerText = phrases[Math.floor(Math.random() * phrases.length)];
-
-        phrase.style.left = random(0, window.innerWidth) + "px";
-        phrase.style.top = random(0, window.innerHeight) + "px";
-
-        phrase.style.setProperty('--moveX', random(-200, 200) + "px");
-        phrase.style.setProperty('--moveY', random(-200, 200) + "px");
-
-        phrase.style.animationDuration = random(25, 60) + "s";
-
-        document.body.appendChild(phrase);
-    }
-}
-
-generatePhrases();
-
-/* Regenereaza la rotire telefon */
-window.addEventListener("resize", generatePhrases);
+/* Touch telefon */
+document.addEventListener("touchmove", e => {
+    moveText(e.touches[0].clientX, e.touches[0].clientY);
+});
 </script>
 
 </body>
