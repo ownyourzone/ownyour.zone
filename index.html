@@ -7,47 +7,63 @@
 <style>
 body {
     margin: 0;
-    background: black;
-    overflow: hidden;
     height: 100vh;
+    background: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
-/* Text OYZ */
+/* Container 3D */
+.scene {
+    perspective: 800px;
+}
+
+/* Text */
 #oyz {
-    position: absolute;
     color: white;
     font-size: 20vw;
     font-weight: bold;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
     user-select: none;
-    pointer-events: none;
-    transition: transform 0.1s linear;
 }
 </style>
 </head>
 
 <body>
 
-<div id="oyz">OYZ</div>
+<div class="scene">
+    <div id="oyz">OYZ</div>
+</div>
 
 <script>
 const text = document.getElementById("oyz");
 
-function moveText(x, y) {
-    text.style.left = x + "px";
-    text.style.top = y + "px";
+function rotateText(x, y) {
+
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    const rotateY = (x - centerX) / 20;
+    const rotateX = -(y - centerY) / 20;
+
+    text.style.transform =
+        `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 }
 
 /* Mouse */
 document.addEventListener("mousemove", e => {
-    moveText(e.clientX, e.clientY);
+    rotateText(e.clientX, e.clientY);
 });
 
 /* Touch telefon */
 document.addEventListener("touchmove", e => {
-    moveText(e.touches[0].clientX, e.touches[0].clientY);
+    rotateText(
+        e.touches[0].clientX,
+        e.touches[0].clientY
+    );
 });
 </script>
 
