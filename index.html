@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ownyourzone</title>
 
 <style>
@@ -13,37 +13,33 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Propozitii mici */
+/* Text mic fundal */
 .phrase {
     position: absolute;
     color: white;
-    font-size: 10px;
-    opacity: 0.6;
+    font-size: 2.5vw; /* responsive */
+    opacity: 0.55;
     white-space: nowrap;
     pointer-events: none;
     animation: float linear infinite;
 }
 
-/* Miscare */
+/* Animatie miscare */
 @keyframes float {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate(var(--moveX), var(--moveY));
-    }
+    from { transform: translate(0,0); }
+    to { transform: translate(var(--moveX), var(--moveY)); }
 }
 
-/* Text central */
+/* Text mare centru */
 .center-text {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 90px;
+    font-size: 18vw; /* responsive */
     font-weight: bold;
     color: black;
-    -webkit-text-stroke: 3px white;
+    -webkit-text-stroke: 4px white;
     text-align: center;
     pointer-events: none;
 }
@@ -82,24 +78,34 @@ function random(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-/* Creeaza multe texte */
-for(let i = 0; i < 250; i++) {
+function generatePhrases() {
 
-    const phrase = document.createElement("div");
-    phrase.className = "phrase";
-    phrase.innerText = phrases[Math.floor(Math.random() * phrases.length)];
+    document.querySelectorAll(".phrase").forEach(e => e.remove());
 
-    phrase.style.left = random(0, window.innerWidth) + "px";
-    phrase.style.top = random(0, window.innerHeight) + "px";
+    const density = Math.floor((window.innerWidth * window.innerHeight) / 9000);
 
-    /* Directii random */
-    phrase.style.setProperty('--moveX', random(-300, 300) + "px");
-    phrase.style.setProperty('--moveY', random(-300, 300) + "px");
+    for(let i = 0; i < density; i++) {
 
-    phrase.style.animationDuration = random(20, 60) + "s";
+        const phrase = document.createElement("div");
+        phrase.className = "phrase";
+        phrase.innerText = phrases[Math.floor(Math.random() * phrases.length)];
 
-    document.body.appendChild(phrase);
+        phrase.style.left = random(0, window.innerWidth) + "px";
+        phrase.style.top = random(0, window.innerHeight) + "px";
+
+        phrase.style.setProperty('--moveX', random(-200, 200) + "px");
+        phrase.style.setProperty('--moveY', random(-200, 200) + "px");
+
+        phrase.style.animationDuration = random(25, 60) + "s";
+
+        document.body.appendChild(phrase);
+    }
 }
+
+generatePhrases();
+
+/* Regenereaza la rotire telefon */
+window.addEventListener("resize", generatePhrases);
 </script>
 
 </body>
