@@ -1,71 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>WHAT THE FUCK</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-size: 3em;
+      text-align: center;
+    }
 
-<style>
-body {
-    margin: 0;
-    height: 100vh;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
+    .flash {
+      animation: flash 3s infinite;
+    }
 
-/* Container 3D */
-.scene {
-    perspective: 800px;
-}
+    @keyframes flash {
+      0%, 95%, 100% { opacity: 1; }
+      97.5% { opacity: 0.2; }
+    }
 
-/* Text */
-#oyz {
-    color: white;
-    font-size: 20vw;
-    font-weight: bold;
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease-out;
-    user-select: none;
-}
-</style>
+    .word {
+      margin: 0.2em 0;
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="scene">
-    <div id="oyz">OYZ</div>
-</div>
-
-<script>
-const text = document.getElementById("oyz");
-
-function rotateText(x, y) {
-
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-
-    const rotateY = (x - centerX) / 20;
-    const rotateX = -(y - centerY) / 20;
-
-    text.style.transform =
-        `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-}
-
-/* Mouse */
-document.addEventListener("mousemove", e => {
-    rotateText(e.clientX, e.clientY);
-});
-
-/* Touch telefon */
-document.addEventListener("touchmove", e => {
-    rotateText(
-        e.touches[0].clientX,
-        e.touches[0].clientY
-    );
-});
-</script>
-
+  <div class="word">WHAT</div>
+  <div class="word">THE</div>
+  <div class="word">FUCK</div>
+  <div class="word">AM</div>
+  <div class="word">I</div>
+  <div class="word class="flash">MY</div>
+  <div class="word">DOING</div>
+  <div class="word">WITH</div>
+  <div class="word class="flash">LIFE</div>
 </body>
 </html>
