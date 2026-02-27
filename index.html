@@ -3,29 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ownyourzone</title>
+<title>Universe Message</title>
 
-<!-- Font handwritten -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    padding: 0;
     background: black;
     color: white;
     font-family: 'Dancing Script', cursive;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
 }
 
 .container {
-    max-width: 90%;
-    font-size: 1.4rem;
-    line-height: 1.8;
+    width: 90%;
+    max-width: 700px;
+    font-size: 1.5rem;
+    line-height: 1.9;
+    text-align: center;
+    padding: 60px 0;
     white-space: pre-line;
 }
 
@@ -33,7 +31,7 @@ body {
     display: inline-block;
     width: 2px;
     background: white;
-    margin-left: 4px;
+    margin-left: 5px;
     animation: blink 1s infinite;
 }
 
@@ -80,6 +78,13 @@ function typeWriter() {
     if (i < message.length) {
         textElement.innerHTML += message.charAt(i);
         i++;
+
+        // scroll automat pe masura ce se scrie
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+        });
+
         setTimeout(typeWriter, speed);
     }
 }
