@@ -1,46 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ownyourzone</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universe Message</title>
 
-    .word {
-      margin: 0.5em 0;
-      font-size: 8vw; /* mare și responsive */
-    }
+<!-- Font handwritten -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 
-    .flash {
-      animation: flash 1s infinite;
-    }
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
 
-    @keyframes flash {
-      0%, 95%, 100% { opacity: 1; }
-      97.5% { opacity: 0.2; }
-    }
-  </style>
+.container {
+    max-width: 90%;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    background: white;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+</style>
 </head>
+
 <body>
-  <div class="word">WHAT</div>
-  <div class="word">THE</div>
-  <div class="word">FUCK</div>
-  <div class="word">AM</div>
-  <div class="word">I</div>
-  <div class="word">DOING</div>
-  <div class="word">WITH</div>
-  <div class="word flash">MY</div>
-  <div class="word flash">LIFE</div>
+
+<div class="container">
+    <span id="text"></span><span class="cursor"></span>
+</div>
+
+<script>
+const message = `Universe…
+
+I don’t fully know who or what you are, but I feel there’s something bigger than me. And if I’m part of you, then please help me not feel so lost.
+
+There are moments when I don’t understand what’s happening in my life. If there’s meaning behind it, show it to me. If there’s something I need to learn, make me aware of it.
+
+Give me calm when my mind won’t slow down. Give me strength when I feel small. And if I’m asking for something that isn’t meant for me, close that door without letting me destroy myself.
+
+Thank you for what I have right now, even if it’s not perfect. Thank you that I’m still here, still breathing, still able to try.
+
+And thank you for removing from my life the people who were toxic and didn’t bring anything good into it. Even if it hurt. Even if I didn’t understand it at the time. I trust that some endings are protection.
+
+Thank you for making space for better people — people who mean well, who bring peace instead of chaos, who want to grow and do good.
+
+Help me recognize the right people when they come. Help me not push away what is good for me. And help me become the kind of person who attracts what is healthy, honest, and real.
+
+And if I drift away from myself,
+bring me back.
+
+That’s all.`;
+
+let i = 0;
+const speed = 35; // viteza mai fluida (mai mic = mai rapid)
+const textElement = document.getElementById("text");
+
+function typeWriter() {
+    if (i < message.length) {
+        textElement.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+typeWriter();
+</script>
+
 </body>
 </html>
