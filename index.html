@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ownyourzone</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
-            color: white;
-            font-size: 100px;
-            font-family: Arial, sans-serif;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ownyourzone</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Impact', sans-serif;
+    }
+
+    .graffiti {
+        color: white;
+        font-size: 150px;
+        position: relative;
+        text-shadow:
+            2px 2px 0 #fff,
+           -2px -2px 0 #fff,
+            2px -2px 0 #fff,
+           -2px 2px 0 #fff;
+        transform: rotate(-10deg) skewX(-5deg);
+    }
+
+    .circle {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border: 5px solid white;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(5deg);
+        box-shadow: 0 0 10px white, 0 0 15px white;
+    }
+</style>
 </head>
 <body>
-    161
+    <div class="circle"></div>
+    <div class="graffiti">A</div>
 </body>
 </html>
