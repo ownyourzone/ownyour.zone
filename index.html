@@ -1,96 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ownyourzone</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-
-<style>
-body {
-    margin: 0;
-    background: black;
-    color: white;
-    font-family: 'Dancing Script', cursive;
-    display: flex;
-    justify-content: center;
-}
-
-.container {
-    width: 90%;
-    max-width: 700px;
-    font-size: 1.5rem;
-    line-height: 1.9;
-    text-align: center;
-    padding: 60px 0;
-    white-space: pre-line;
-}
-
-.cursor {
-    display: inline-block;
-    width: 2px;
-    background: white;
-    margin-left: 5px;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ownyourzone</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            font-size: 100px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="container">
-    <span id="text"></span><span class="cursor"></span>
-</div>
-
-<script>
-const message = `Universe…
-
-I don’t fully know who or what you are, but I feel there’s something bigger than me. And if I’m part of you, then please help me not feel so lost.
-
-There are moments when I don’t understand what’s happening in my life. If there’s meaning behind it, show it to me. If there’s something I need to learn, make me aware of it.
-
-Give me calm when my mind won’t slow down. Give me strength when I feel small. And if I’m asking for something that isn’t meant for me, close that door without letting me destroy myself.
-
-Thank you for what I have right now, even if it’s not perfect. Thank you that I’m still here, still breathing, still able to try.
-
-And thank you for removing from my life the people who were toxic and didn’t bring anything good into it. Even if it hurt. Even if I didn’t understand it at the time. I trust that some endings are protection.
-
-Thank you for making space for better people — people who mean well, who bring peace instead of chaos, who want to grow and do good.
-
-Help me recognize the right people when they come. Help me not push away what is good for me. And help me become the kind of person who attracts what is healthy, honest, and real.
-
-And if I drift away from myself,
-bring me back.
-
-That’s all.`;
-
-let i = 0;
-const speed = 60;
-const textElement = document.getElementById("text");
-
-function typeWriter() {
-    if (i < message.length) {
-        textElement.innerHTML += message.charAt(i);
-        i++;
-
-        // scroll automat pe masura ce se scrie
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth"
-        });
-
-        setTimeout(typeWriter, speed);
-    }
-}
-
-typeWriter();
-</script>
-
+    161
 </body>
 </html>
