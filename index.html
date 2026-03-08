@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ownyourzone</title>
+<title>Anarhie Graffiti</title>
 <style>
     body {
         margin: 0;
@@ -15,28 +15,34 @@
         font-family: 'Impact', sans-serif;
     }
 
-    .graffiti {
-        color: white;
-        font-size: 150px;
-        position: relative;
-        text-shadow:
-            2px 2px 0 #fff,
-           -2px -2px 0 #fff,
-            2px -2px 0 #fff,
-           -2px 2px 0 #fff;
-        transform: rotate(-10deg) skewX(-5deg);
-    }
-
     .circle {
         position: absolute;
         width: 200px;
         height: 200px;
-        border: 5px solid white;
+        border: 6px solid red;
         border-radius: 50%;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) rotate(5deg);
-        box-shadow: 0 0 10px white, 0 0 15px white;
+        transform: translate(-50%, -50%) rotate(-5deg) scale(1.05, 0.95);
+        box-shadow: 0 0 10px red, 0 0 15px red;
+        /* neregularitate */
+        clip-path: polygon(
+            5% 10%, 95% 5%, 100% 50%, 95% 95%, 5% 90%, 0% 50%
+        );
+    }
+
+    .graffiti {
+        color: red;
+        font-size: 160px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-15deg) skewX(-10deg);
+        text-shadow:
+            2px 2px 0 #900,
+           -2px -2px 0 #900,
+            2px -2px 0 #900,
+           -2px 2px 0 #900;
     }
 </style>
 </head>
