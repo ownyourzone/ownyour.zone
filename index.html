@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ownyourzone</title>
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<title>Hitori</title>
 <style>
     body {
         margin: 0;
@@ -12,15 +10,65 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: black;
-        color: red;
-        font-family: 'Permanent Marker', cursive;
-        font-size: 150px;
-        text-shadow: 2px 2px 0 #900, -2px -2px 0 #900;
+        background: radial-gradient(circle at center, #120000 0%, #000000 60%, #000000 100%);
+        overflow: hidden;
+        font-family: "Arial", sans-serif;
+    }
+
+    .text {
+        font-size: 120px;
+        color: #ff0000;
+        letter-spacing: 10px;
+        position: relative;
+        text-shadow:
+            0 0 10px #ff0000,
+            0 0 25px #8b0000,
+            0 0 50px #ff0000;
+        animation: pulse 2.5s infinite ease-in-out;
+    }
+
+    .glow {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255,0,0,0.25), transparent 70%);
+        filter: blur(20px);
+        animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            text-shadow:
+                0 0 10px #ff0000,
+                0 0 25px #8b0000,
+                0 0 50px #ff0000;
+        }
+        50% {
+            transform: scale(1.08);
+            text-shadow:
+                0 0 20px #ff0000,
+                0 0 40px #ff1a1a,
+                0 0 80px #ff0000;
+        }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(1.2); }
+    }
+
+    .glow {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 </style>
 </head>
 <body>
-    OYZ
+
+<div class="glow"></div>
+<div class="text">独り</div>
+
 </body>
 </html>
