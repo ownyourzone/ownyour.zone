@@ -74,6 +74,22 @@
   }
 }
 
+/* FLICKER EFFECT */
+.flicker {
+  animation: flickerAnim 1s;
+}
+
+@keyframes flickerAnim {
+  0% { opacity: 1; }
+  10% { opacity: 0.2; }
+  20% { opacity: 1; }
+  30% { opacity: 0.4; }
+  40% { opacity: 1; }
+  60% { opacity: 0.1; }
+  80% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
   </style>
 </head>
 <body>
@@ -86,10 +102,14 @@
   </div>  <script>
     setTimeout(() => {
       const el = document.getElementById('container');
+      const body = document.body;
+
       el.classList.add('glitch');
+      body.classList.add('flicker');
 
       setTimeout(() => {
         el.classList.remove('glitch');
+        body.classList.remove('flicker');
       }, 1000);
     }, 5000);
   </script></body>
