@@ -4,20 +4,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Own Your Zone</title>
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-    }.container {
+    * { box-sizing: border-box; }body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.container {
   text-align: center;
   max-width: 800px;
   padding: 20px;
+  position: relative;
 }
 
 .main-text {
@@ -38,15 +41,56 @@
   line-height: 1.6;
 }
 
+/* GLITCH EFFECT */
+.glitch {
+  animation: glitchAnim 1s;
+}
+
+@keyframes glitchAnim {
+  0% {
+    transform: translate(0);
+    filter: hue-rotate(0deg) contrast(1);
+  }
+  10% {
+    transform: translate(-5px, 3px) skewX(10deg);
+    filter: hue-rotate(90deg) contrast(1.5);
+  }
+  20% {
+    transform: translate(5px, -3px) skewY(-10deg);
+    filter: hue-rotate(180deg) contrast(2);
+  }
+  40% {
+    transform: translate(-3px, 2px);
+  }
+  60% {
+    transform: translate(3px, -2px);
+  }
+  80% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg) contrast(1);
+  }
+}
+
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="container">
     <div class="main-text">ゾーンを持て</div>
     <div class="sub-text">Own Your Zone</div>
     <div class="description">
       To take total control of your life, consciously choosing the people, actions and environment that bring you value and eliminating anything that negatively affects your balance
     </div>
-  </div>
-</body>
+  </div>  <script>
+    setTimeout(() => {
+      const el = document.getElementById('container');
+      el.classList.add('glitch');
+
+      setTimeout(() => {
+        el.classList.remove('glitch');
+      }, 1000);
+    }, 5000);
+  </script></body>
 </html>
