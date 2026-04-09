@@ -1,74 +1,52 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Hitori</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Own Your Zone</title>
+  <style>
+    * { box-sizing: border-box; }
     body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: radial-gradient(circle at center, #120000 0%, #000000 60%, #000000 100%);
-        overflow: hidden;
-        font-family: "Arial", sans-serif;
-    }
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }.container {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+}
 
-    .text {
-        font-size: 120px;
-        color: #ff0000;
-        letter-spacing: 10px;
-        position: relative;
-        text-shadow:
-            0 0 10px #ff0000,
-            0 0 25px #8b0000,
-            0 0 50px #ff0000;
-        animation: pulse 2.5s infinite ease-in-out;
-    }
+.main-text {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-    .glow {
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(255,0,0,0.25), transparent 70%);
-        filter: blur(20px);
-        animation: float 6s infinite ease-in-out;
-    }
+.sub-text {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
 
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-            text-shadow:
-                0 0 10px #ff0000,
-                0 0 25px #8b0000,
-                0 0 50px #ff0000;
-        }
-        50% {
-            transform: scale(1.08);
-            text-shadow:
-                0 0 20px #ff0000,
-                0 0 40px #ff1a1a,
-                0 0 80px #ff0000;
-        }
-    }
+.description {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  line-height: 1.6;
+}
 
-    @keyframes float {
-        0%, 100% { transform: translate(-50%, -50%) scale(1); }
-        50% { transform: translate(-50%, -50%) scale(1.2); }
-    }
-
-    .glow {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-</style>
+  </style>
 </head>
 <body>
-
-<div class="glow"></div>
-<div class="text">独り</div>
-
+  <div class="container">
+    <div class="main-text">ゾーンを持て</div>
+    <div class="sub-text">Own Your Zone</div>
+    <div class="description">
+      To take total control of your life, consciously choosing the people, actions and environment that bring you value and eliminating anything that negatively affects your balance
+    </div>
+  </div>
 </body>
 </html>
