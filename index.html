@@ -73,24 +73,6 @@ line-height: 1.6;
 To take total control of your life, consciously choosing the people, actions and environment that bring you value and eliminating anything that negatively affects your balance
 </div>
 </div>
-
-<script>
-window.addEventListener("load", () => {
-
-const el = document.getElementById("container");
-el.classList.add("intro");
-
-/* Discord notification */
-fetch("https://discord.com/api/webhooks/1466194935601561614/wD8gnwnd84VwrtCwwMU-G-_-yAR_Zc_IEQ6fyP63o9MHyr-jec2uxqR9Motpe1NgFGvU", {
-method: "POST",
-headers: {
-"Content-Type": "application/json"
-},
-body: JSON.stringify({
-content: "🚨"
-})
-}).catch(err => console.log(err));
-
 });
 </script>
 
