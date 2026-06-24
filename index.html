@@ -2,75 +2,175 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Own Your Zone</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
-margin: 0;
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
-font-family: Arial, Helvetica, sans-serif;
-background: #000;
-color: #fff;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #000;
+    color: #fff;
 }
 
 .container {
-text-align: center;
-max-width: 900px;
-padding: 20px;
-opacity: 0;
-transform: scale(1.05);
-animation: introAnim 1.2s ease-out forwards;
+    text-align: center;
+    max-width: 900px;
+    padding: 20px;
+    opacity: 0;
+    transform: scale(1.05);
+    animation: intro 1.2s ease forwards;
 }
 
-@keyframes introAnim {
-0% {
-opacity: 0;
-transform: scale(1.08);
-}
-100% {
-opacity: 1;
-transform: scale(1);
-}
+@keyframes intro {
+    from { opacity: 0; transform: scale(1.08); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 .main-text {
-font-size: 3.2rem;
-font-weight: bold;
-margin-bottom: 10px;
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .sub-text {
-font-size: 1.3rem;
-margin-bottom: 20px;
-opacity: 0.9;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
 }
 
 .description {
-font-size: 0.95rem;
-opacity: 0.85;
-line-height: 1.6;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+}
+
+.box {
+    width: 60%;
+    height: 55%;
+    border: 2px solid #fff;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 25px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.08);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 🔥 MICȘORAT AICI */
+.title {
+    font-size: 2.4rem; /* era 3rem */
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    letter-spacing: 3px;
+    text-shadow: 0 0 6px #fff;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    text-align: center;
+}
+
+.flash {
+    animation: flashOutline 0.25s ease-in-out 6;
+}
+
+@keyframes flashOutline {
+    0%, 100% {
+        text-shadow: 0 0 2px #fff, 0 0 6px #fff;
+    }
+    50% {
+        text-shadow: 0 0 12px #fff, 0 0 24px #fff;
+    }
 }
 </style>
-
 </head>
+
 <body>
 
-<div class="container" id="container">
-<div class="main-text">ゾーンを持て</div>
-<div class="sub-text">Own Your Zone</div>
-<div class="description">
-To take total control of your life, consciously choosing the people, actions and environment that bring you value and eliminating anything that negatively affects your balance
-</div>
+<div class="container">
+    <div class="main-text">ゾーンを持て</div>
+    <div class="sub-text">Own Your Zone</div>
+    <div class="description">
+        To take total control of your life, consciously choosing the people,
+        actions and environment that bring you value and eliminating anything
+        that negatively affects your balance.
+    </div>
 </div>
 
-<!-- removed broken </script> -->
+<div class="overlay" id="overlay">
+    <div class="box">
+        <button class="close" id="closeBtn">✕</button>
+
+        <div class="title" id="title">
+            PROTECT YOUR ZONE
+        </div>
+
+        <div class="subtitle">
+            Eliminate the intruders while you still can.
+        </div>
+    </div>
+</div>
+
+<script>
+const overlay = document.getElementById("overlay");
+const title = document.getElementById("title");
+const closeBtn = document.getElementById("closeBtn");
+
+let shown = false;
+
+setTimeout(() => {
+    if (shown) return;
+    shown = true;
+
+    overlay.style.display = "flex";
+
+    title.classList.remove("flash");
+    void title.offsetWidth;
+    title.classList.add("flash");
+}, Math.random() * 3000 + 3000);
+
+closeBtn.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
+</script>
 
 </body>
 </html>
